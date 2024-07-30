@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Wisecow_Application_Deployment
+  labels:
+    app: wiscow
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: wiscow
+  template:
+    metadata:
+      labels:
+        app: wiscow
+    spec:
+      containers:
+      - name: wiscow
+        image: <your-container-registry>/wisecow-app:latest
+        ports:
+        - containerPort: 80
